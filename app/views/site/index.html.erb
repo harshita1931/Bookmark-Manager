@@ -1,0 +1,41 @@
+<% if current_user %>
+  <h2>Latest Bookmarks</h2>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th>Url</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @bookmarks.each do |bookmark| %>
+        <tr>
+          <td><%= link_to bookmark.title, bookmark.url %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <div class="panel">
+    <h1>Share your bookmarks!</h1>
+    <p>A simple app to track and share your beloved bookmarks with others.</p>
+    <%= link_to "Get started today", new_user_registration_path, :class => "button button-large" %>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="large-8 columns">
+      <h3>How To Use This App</h3>
+      <p>
+      This app helps you manage your bookmarks. You can log into your account and add or remove bookmarks. Each account is password protected. Multiple accounts can be made on this app. 
+      </p>
+
+    </div>
+    <div class="large-4 columns">
+      <h3>About this app</h3>
+       <p>This app is developed by me (Harshita Srivastava) as an attempt to learn Ruby on Rails. </p>
+    </div>
+  </div>
+<% end %>
